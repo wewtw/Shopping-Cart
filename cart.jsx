@@ -122,9 +122,12 @@ const Products = (props) => {
   let list = items.map((item, index) => {
     //let n = index + 1049;
     //let url = "https://picsum.photos/id/" + n + "/50/50";
-
+  const lineStyle = {
+      margin: '4px',
+      border: '5px solid pink'
+    };
     return (
-      <li key={index}>
+      <li key={index} style={lineStyle}>
         <Image src={photos[index % 4]} width={70} roundedCircle></Image>
         <Button variant="primary" size="large">
           {item.name} Cost:${item.cost} Stock:{item.instock}
@@ -133,14 +136,24 @@ const Products = (props) => {
       </li>
     );
   });
+  const accordionStyle = {
+    margin: '4px',
+    border: '5px solid green',
+    
+  };
+  const accordionBodyStyle = {
+    margin: '4px',
+    border: '2px solid red',
+    color: 'red'
+  };
   let cartList = cart.map((item, index) => {
     return (
-      <Accordion.Item key={1+index} eventKey={1 + index}>
+      <Accordion.Item key={1+index} eventKey={1 + index} style={accordionStyle}>
       <Accordion.Header>
         {item.name}, ${item.cost} from {item.country}.
       </Accordion.Header>
       <Accordion.Body onClick={() => deleteCartItem(index)}
-        eventKey={1 + index}>
+        eventKey={1 + index} style={accordionBodyStyle}>
         Remove Item.
       </Accordion.Body>
     </Accordion.Item>
