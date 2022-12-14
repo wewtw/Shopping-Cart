@@ -137,11 +137,11 @@ const Products = (props) => {
     return (
       <Accordion.Item key={1+index} eventKey={1 + index}>
       <Accordion.Header>
-        {item.name}
+        {item.name}, ${item.cost} from {item.country}.
       </Accordion.Header>
       <Accordion.Body onClick={() => deleteCartItem(index)}
         eventKey={1 + index}>
-        ${item.cost} from {item.country}. Remove(X)
+        Remove Item.
       </Accordion.Body>
     </Accordion.Item>
     );
